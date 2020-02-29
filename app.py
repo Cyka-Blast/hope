@@ -4,7 +4,11 @@ from flask_socketio import SocketIO, join_room, leave_room
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-@app.route('/' )
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/help' )
 def index():
     return render_template('index.html')
 
