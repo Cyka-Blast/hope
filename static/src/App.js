@@ -7,7 +7,7 @@ let endPoint="http://127.0.0.1:5000/";
 let socket=io.connect(endPoint);
 function Chat(){
 	const [messages,setMessages]=useState([]);
-	const [message, setMessage]=useState("");
+	const [message, setMessage]=useState({text:"", user:""});
 	useEffect(()=>{
 		getMessages();
 	}, [messages.length]);
@@ -18,13 +18,14 @@ function Chat(){
 	};
 	const onChange =e => {
 		var msg=e.target.value;
-		setMessage(msg);
+		setMessage({text:msg,user:"current"});
 	};
-	const onClick = () => {
-	if(message != ""){
-		socket.emit("message",message);
+	const onClick = (e) => {
+		e.preventDefault()
+	if(message.text != ""){
+		socket.emit("message",{text:message.text,user:"other"});
 		setMessages([...messages,message]);
-		setMessage("");
+		setMessage({text:"",user:""});
 	}else{
 		alert("Please Add a Message");
 	}
@@ -32,13 +33,21 @@ function Chat(){
 
 	return(
 		<div>
+		<nav className="navbar">
+			<div className="backbutton">
+			<a href="#">&#8672;</a>
+			</div>
+			<div className="navbar-brand">The Rapist or User</div>
+		</nav>
 		{messages.length>0 && messages.map(msg => (
-			<div>
-			<p>{msg}</p>
+			<div className={msg.user}>
+			<p>{msg.text}</p>
 			</div>
 		))}
-		<input value={message} name="message" onChange={e => onChange(e)} />
-		<button onClick={() => onClick()}>Send</button>
+		<form className="input" onSubmit={(e) => onClick(e)}>
+		<input value={message.text} name="message" onChange={e => onChange(e)} />
+		<button className="submit-button" >Send</button>
+		</form>
 		</div>
 	);
 };
