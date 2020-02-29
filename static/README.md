@@ -1,0 +1,1 @@
+idhar sab static hoga
