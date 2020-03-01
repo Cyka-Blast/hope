@@ -6,13 +6,64 @@
         <title>Chat</title>
         <meta name="description" content="lmao">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../static/materialize.min.css"  media="screen,projection"/>
+    <style>
+	nav{
+		position: absolute;
+		top: 0;
+		padding: 5px 20px;
+		background-color: #0F082F;
+	    }
+	body{
+		background-color:#fafccd;
+	}
+	.collection{
+		position: absolute;
+		width: 70vw;
+		left:15vw;
+		border-radius: 10px;
+		top: 15vw;
+	}
+	.head{
+		position: absolute;
+		top: 5vw;
+		text-align: center;
+		width: 40%;
+		margin: 0% 30% 0% 30%;
+	}
+	</style>
     </head>
+    <nav>
+	    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">HOPE</a>
+      <ul class="right">
+        <li><i class="large material-icons" href="/login">account_circle</i></li>
+
+      </ul>
+    </div>
+  </nav>
+
     <body>
         
-        <h1>Chat here</h1>
-        <ul>
-            <li><a href="http://127.0.0.1:5000/chat?username=User&room=1">Dr. Pramod Sawant</a> </li>
+	    <div class="head"><h1>Choose Therapist</h1></div>
+        <ul class="collection">
+            <li class="collection-item avatar" ><a href="http://127.0.0.1:5000/chat?username=User&room=1">
+			    <img src="../static/pramod.jpg" class="circle">
+			    <span class="Title">Dr. Pramod Sawant</span>
+		    </a> </li>
+            <li class="collection-item avatar" ><a href="http://127.0.0.1:5000/chat?username=User&room=1">
+			    <img src="../static/adlete.jpg" class="circle">
+			    <span class="Title">Dr. Adlete Mascerhanas</span>
+		    </a> </li>
+            <li class="collection-item avatar" ><a href="http://127.0.0.1:5000/chat?username=User&room=1">
+			    <img src="../static/user.png" class="circle">
+			    <span class="Title">Dr. Sahil Govekar</span>
+		    </a> </li>
+            <li class="collection-item avatar" ><a href="http://127.0.0.1:5000/chat?username=User&room=1">
+			    <img src="../static/rossi.jpg" class="circle">
+			    <span class="Title">The Dr. Valentino Rossi</span>
+		    </a> </li>
         </ul>
         
         <script src="" async defer></script>
