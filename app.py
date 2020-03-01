@@ -8,6 +8,12 @@ socketio = SocketIO(app)
 def home():
     return render_template('home.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """ form = LoginForm() """
+    
+    return render_template('login.html', title='Sign In')
+
 @app.route('/help' )
 def index():
     return render_template('index.html')
