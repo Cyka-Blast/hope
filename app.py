@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_socketio import SocketIO, join_room, leave_room
+from forms import LoginForm
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -21,6 +22,12 @@ def chat():
         return render_template('chat.html', username=username, room=room)
     else:
         return redirect(url_for('home'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    
+    return render_template('login.html', title='Sign In', form=form)
 
 @socketio.on('send_message')
 def handle_send_message_event(data):
