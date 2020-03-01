@@ -22,6 +22,11 @@ def chat():
     else:
         return redirect(url_for('home'))
 
+@app.route('/appointment')
+def appointment():
+    return render_template('appointment.html')
+
+
 @socketio.on('send_message')
 def handle_send_message_event(data):
     app.logger.info("{} has sent message to the room {}: {}".format(data['username'],
