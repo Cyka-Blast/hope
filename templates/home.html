@@ -6,12 +6,21 @@
         <title>A New Hope</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../static/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="../static/styles.css"/>
       
         <style>
             *{
                 margin: 0;
                 /* padding: 0; */
             }
+	    nav{
+		position: absolute;
+		top: 0;
+		padding: 5px 20px;
+		background-color: #0F082F;
+	    }
             body {
                 display: flex;
                 justify-content: center;
@@ -19,78 +28,57 @@
                 height: 100vh;
                 color: #fff;
                 background-color: #000;
+		background-image: url("../static/tatooine.jpg");
+		background-size: cover;
                 font-family: Arial, Helvetica, sans-serif;
             }
             .block h1 {
+		color: #fafccd;
                 position: relative;
                 overflow: hidden;
                 font-size: 32px;
                 letter-spacing: 3px;
                 text-transform: uppercase;
-                text-align: left;
-            }
-            .block h1:before,
-            .block h1:after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                right: 0;
-                background-color: #fff;
+                text-align: center;
+		opacity: 0;
+                animation: fadein 1s forwards;
             }
 
-            .block h1:before {
-                animation: reveal 2s ease forwards;
-            }
+            @keyframes fadein{
+            	0% {opacity: 0;}
+            	100% {opacity: 1;}
+	    }
+	    @keyframes fadeout{
+		0%{opacity: 1;}
+		100%{opacity: 0;}
+	    }
 
-            .block h1:after {
-                background-color: #000;
-                animation: base 2s ease forwards;
-            }
-
-            @keyframes reveal {
-                0%{
-                    transform: translateX(-100%);
-                }
-                100%{
-                    transform: translateX(111%);
-                }
-            }
-
-            @keyframes base {
-                0%{
-                    transform: translateX(0%);
-                }
-                100%{
-                    transform: translateX(100%);
-                }
-            }
-
-            .block h1:nth-child(1):before,
-            .block h1:nth-child(1):after{
+            .block h1:nth-child(1){
                 animation-delay: 0.5s;
                 
             }
 
-            .block h1:nth-child(2):before,
-            .block h1:nth-child(2):after{
+            .block h1:nth-child(2){
+                animation-delay: 1s;
+            }
+
+            .block h1:nth-child(3){
                 animation-delay: 2s;
             }
 
-            .block h1:nth-child(3):before,
-            .block h1:nth-child(3):after{
+            .block h1:nth-child(4){
+                animation-delay: 3s;
+            }
+
+            .block h1:nth-child(5){
                 animation-delay: 4s;
             }
-
-            .block h1:nth-child(4):before,
-            .block h1:nth-child(4):after{
-                animation-delay: 6s;
-            }
-
-            .block h1:nth-child(5):before,
-            .block h1:nth-child(5):after{
-                animation-delay: 8s;
+            .big {
+		color: #fafccd;
+                padding-left: 20px;
+		opacity:0;
+		animation: fadein 1s forwards;
+		animation-delay: 5s;
             }
 
             h2{
@@ -101,31 +89,61 @@
                 padding-left: 80px;
             }
 
-            big {
-                padding-left: 20px;
+	.fadeout{
+		animation: fadeout 2s forwards;
+		animation-delay: 6s;
+	}
+           .bout {
+                position: absolute;
+		opacity: 0;
+	    animation: bigger 2s forwards;
+	    animation-delay: 6s;
+	    font-family: pacifico, helvetica, sans-serif;
+%;
             }
-
-            bout {
-                border-radius: ;
-            }
+	   @keyframes bigger{
+		0%{
+			font-size: 2.92rem;
+			opacity: 0;
+		}
+		100%{
+			font-size: 20rem;
+			opacity: 1;
+		}
+	   }
+	   .chatwithus{
+		color: #fafccd;
+	   }
+	   .chatwithus:hover{
+		color: #fafccd;
+		   font-size: 25rem;
+	   }
         </style>
+	<nav>
+	    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">HOPE</a>
+      <ul class="right">
+        <li><i class="large material-icons" href="/login">account_circle</i></li>
+
+      </ul>
+    </div>
+  </nav>
     </head>
     <body>
+
+  	<div class="fadeout">
         <div class="block">
             <h1 class="text">Are you</h1>
             <h1 class="text">Anxious</h1>
             <h1 class="text">Depressed</h1>
             <h1 class="text">Lonely</h1>
             <h1 class="text">Insecure</h1>
-        </div class="big">
-        <span><h2>Maybe you need</h2></span>
+	   </div>
+        <div class="big">
+        <span><h2>Maybe you need A new</h2></span>
         </div>
-        <div class="bout">
-        <span><h3>A New Hope</h3></span>
-
-        
-
-        </div>
+	</div>
+	<div class="bout"><a href="/appointment" class="chatwithus">Hope</a></div>
 
     
         

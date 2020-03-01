@@ -7,23 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>My Chat App</title>
+    <style>
+        other {
+            background: #000;
+            width: 100%;
+            margin-left: 30%;
+            margin-right: auto;
+            color: aliceblue;
+            text-align: right;
+            justify-content: right;
+            padding-left: 50%;
+            align-items: center;
+        }
+
+        self {
+            background-color: blue;
+            width: 100%;
+            margin-left: 20%;
+            margin-right: 20%;
+            color: aliceblue;
+            text-align: right;
+            
+        }
+
+        typetext {
+            width: 50%;
+            margin-left: 30%;
+            margin-right: 30%;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
 	<nav class="navbar">
 			<div class="backbutton">
-			<a href="#">&#8672;</a>
+			<a href="/help">&#8672;</a>
 			</div>
-			<div class="navbar-brand">The Rapist or User</div>
+			<div class="navbar-brand">{{ username }}</div>
 		</nav>
 
-<h1>Welcome to chat room {{ room }}</h1>
+<h1 style="font-size: 20px; font-family: cursive; margin-left:45%; width: 50%; margin-top: 15px;">Welcome to chat room {{ room }}</h1>
 
-<div id="messages"></div>
+<div class="self" id="messages"></div>
 
-<form id="message_input_form">
-    <input type="text" id="message_input" placeholder="Enter your message here">
-    <button type="submit">Send</button>
-</form>
+<div class="typetext">
+    <form id="message_input_form">
+        <input type="text" id="message_input" placeholder="Enter your message here">
+        <button type="submit">Send</button>
+    </form>
+</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -61,7 +93,7 @@
     socket.on('receive_message', function (data) {
         console.log(data);
         const newNode = document.createElement('div');
-        newNode.innerHTML = `<b>${data.username}:&nbsp;</b> ${data.message}`;
+        newNode.innerHTML = `<div class="other"><b>${data.username}:&nbsp;</b> ${data.message} </div>`;
         document.getElementById('messages').appendChild(newNode);
     });
 
