@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_socketio import SocketIO, join_room, leave_room
-from forms import LoginForm
+from mango import user
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -24,10 +24,16 @@ def chat():
         return redirect(url_for('home'))
 
 @app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
+def login():    
     
-    return render_template('login.html', title='Sign In', form=form)
+    if request.method == 'POST':
+        name = request.form['name']
+        password = request.form['password']
+        email = request.form['email']    
+        user.save_user(name, email, password)
+        return 'sucsex'    
+    return render_template('login.html')
+    
 
 @socketio.on('send_message')
 def handle_send_message_event(data):
