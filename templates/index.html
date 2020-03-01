@@ -4,13 +4,58 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Chat</title>
-        <meta name="description" content="lmao">
+        <meta name="description" content="lmao">        
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+	  <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+              
+
+        <style>
+            
+            *{
+                margin: 0;
+                /* padding: 0; */
+            }
+
+            nav{
+		position: absolute;
+		top: 0;
+		padding: 5px 20px;
+		background-color: #0F082F;
+        }
+        h1{
+            text-align: center;
+        }
+        input[type=submit] {
+        background-color: #E97041;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+}
+
+        </style>
     </head>
+    <nav>
+	    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">HOPE</a>
+      <ul class="right">
+        <li><i class="large material-icons" href="/login">account_circle</i></li>
+
+      </ul>
+    </div>
+  </nav>
+
     <body>
+        <br/><br/><br/>
         
         <h1>Chat here</h1>
+        <div class="container">
         <form action="/chat">
             <div>
                 <label>Username:</label>
@@ -20,8 +65,11 @@
                 <label>Room id:</label>
                 <input type="text" name="room">
             </div>
-            <button type="submit">Submit</button>
+            <div class="row">
+                <input type="submit" value="Submit">
+              </div>
         </form>
+    </div>
         
         <script src="" async defer></script>
     </body>
